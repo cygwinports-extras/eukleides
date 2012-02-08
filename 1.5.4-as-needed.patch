@@ -1,0 +1,11 @@
+--- origsrc/eukleides-1.5.4/build/Makefile	2010-04-27 01:31:00.000000000 -0500
++++ src/eukleides-1.5.4/build/Makefile	2012-02-08 03:32:29.127365300 -0600
+@@ -47,7 +47,7 @@ $(BUILD_DIR)/%.o: %.c
+ 
+ $(BINARY): $(OBJECTS)
+ 	@echo "    Linking $(notdir $@)"
+-	@$(CC) $(LDFLAGS) $^ -o $@
++	@$(CC) -o $@ $^ $(LDFLAGS)
+ 
+ ifneq ($(BINARY),)
+ -include $(DEPEND)

@@ -1,0 +1,10 @@
+--- origsrc/eukleides-1.5.4/doc/Makefile	2010-04-27 01:31:00.000000000 -0500
++++ src/eukleides-1.5.4/doc/Makefile	2012-02-08 03:36:17.756743500 -0600
+@@ -50,7 +50,6 @@ install: $(INST_TARG)
+ install_info: eukleides.info.gz
+ 	@echo "    Installing info pages"
+ 	@install -d $(INFO_DIR)
+-	@ginstall-info --quiet $< $(INFO_DIR)/dir
+ 	@install -m 0644 $< $(INFO_DIR)
+ 
+ install_pdf: pdf

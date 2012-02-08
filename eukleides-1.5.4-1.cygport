@@ -1,0 +1,17 @@
+DESCRIPTION="Geometry drawing language"
+HOMEPAGE="http://www.eukleides.org/"
+SRC_URI="http://www.eukleides.org/files/${P}.tar.bz2"
+PATCH_URI="1.5.4-as-needed.patch
+	   1.5.4-install.patch"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake -j1
+}
+
+src_install() {
+	cd ${B}
+	dodir /usr/bin
+	cyginstall -j1 PREFIX=${D}/usr
+}

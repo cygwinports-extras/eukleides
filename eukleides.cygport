@@ -1,0 +1,27 @@
+NAME="eukleides"
+VERSION=1.5.4
+RELEASE=1
+CATEGORY="Math"
+SUMMARY="Geometry drawing language"
+DESCRIPTION="Eukleides is a computer language devoted to elementary plane
+geometry. It aims to be a fairly comprehensive system to create geometric
+figures, either static or dynamic. Eukleides allows to handle basic types
+of data: numbers and strings, as well as geometric types of data: points,
+vectors, sets (of points), lines, circles and conics."
+REQUIRES="texlive texlive-collection-fontutils texlive-collection-latex texlive-collection-pstricks"
+HOMEPAGE="http://www.eukleides.org/"
+SRC_URI="http://www.eukleides.org/files/${NAME}-${VERSION}.tar.bz2"
+PATCH_URI="1.5.4-as-needed.patch
+	   1.5.4-install.patch"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake -j1
+}
+
+src_install() {
+	cd ${B}
+	dodir /usr/bin
+	cyginstall -j1 PREFIX=${D}/usr
+}
